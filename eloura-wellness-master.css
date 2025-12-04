@@ -1,0 +1,1723 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   ELOURA WELLNESS - MASTER CSS FOUNDATION
+   Generated: December 2025
+   Design System Version: 2.0
+   Motion System: Vibrant-inspired (Dramatic, refined, intentional)
+   Platform: GoHighLevel
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   1. FONT IMPORT
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   2. CSS VARIABLES
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* ═══ COLORS - PRIMARY ═══ */
+  
+  /* Forest Green (Primary) */
+  --color-primary: #00674E;
+  --color-primary-dark: #004F3D;
+  --color-primary-light: #6B8F71;
+  
+  /* Gold (Accent - 5-10% usage only) */
+  --color-accent: #C79349;
+  --color-accent-light: #E5C494;
+  
+  /* Warm Beige (Light sections) */
+  --color-beige: #FEF8E8;
+  
+  /* Extended Palette (Gradients) */
+  --color-sage: #6B8F71;
+  --color-peach: #F4A460;
+  
+  /* ═══ COLORS - NEUTRAL (Warm-biased) ═══ */
+  --color-background: #FDFCFA;        /* Page backgrounds (warm white) */
+  --color-surface: #F8F5EF;           /* Cards, elevated sections */
+  --color-border: #E8E2D5;            /* Subtle dividers */
+  
+  --color-text-primary: #1A2E1C;      /* Headlines, body (deep green-black) */
+  --color-text-secondary: #5A6B5C;    /* Supporting text (muted green-gray) */
+  --color-text-tertiary: #8A9688;     /* Captions, metadata */
+  
+  /* Text on dark backgrounds */
+  --color-text-inverse: #FFFFFF;
+  --color-text-inverse-muted: rgba(255, 255, 255, 0.85);
+  --color-text-inverse-subtle: rgba(255, 255, 255, 0.6);
+  
+  /* ═══ COLORS - SEMANTIC ═══ */
+  --color-success: #00674E;           /* Using primary */
+  --color-success-light: #E6F4F1;
+  --color-warning: #C79349;           /* Using accent */
+  --color-warning-light: #FDF6E8;
+  --color-error: #DC2626;
+  --color-error-light: #FEF2F2;
+  --color-info: #3B82F6;
+  --color-info-light: #EFF6FF;
+  
+  /* ═══ TYPOGRAPHY ═══ */
+  --font-headline: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, sans-serif;
+  
+  /* Type Scale - Desktop */
+  --size-display: 72px;
+  --size-h1: 56px;
+  --size-h2: 44px;
+  --size-h3: 32px;
+  --size-h4: 24px;
+  --size-body-lg: 20px;
+  --size-body: 16px;
+  --size-small: 14px;
+  
+  /* ═══ SPACING (8px base) ═══ */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  
+  --space-section: 100px;
+  --space-section-mobile: 60px;
+  --space-section-hero: 140px;
+  --space-section-hero-mobile: 80px;
+  
+  /* Component Spacing */
+  --space-button-vertical: 18px;
+  --space-button-horizontal: 36px;
+  --space-input-vertical: 16px;
+  --space-input-horizontal: 16px;
+  --space-card-padding: 40px;
+  --space-card-padding-mobile: 32px;
+  
+  /* ═══ RADII ═══ */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+  
+  /* ═══ MOTION - VIBRANT'S EXACT SPECIFICATIONS ═══ */
+  
+  /* Timing Tokens */
+  --transition-fast: 0.2s ease;                                    /* Buttons, links, micro-interactions */
+  --transition-medium: 0.4s ease;                                  /* Cards, glassmorphism reveals */
+  --transition-slow: 0.9s cubic-bezier(0.165, 0.84, 0.44, 1);     /* Headline entrances (Vibrant) */
+  --transition-emphasis: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); /* Content blocks reveal (Vibrant) */
+  
+  /* Delays (Vibrant stagger pattern) */
+  --delay-stagger: 0.3s;          /* Vibrant's 0.3s between items */
+  --delay-secondary: 0.2s;        /* For line-by-line text reveals */
+  --delay-tertiary: 0.6s;         /* For third-level content */
+  
+  /* Animation Values (Vibrant Specifications) */
+  --animate-rise-distance: 4rem;   /* 64px - Vibrant's dramatic rise */
+  --animate-rise-small: 2rem;      /* 32px - for subtle reveals */
+  --animate-blur-amount: 20px;     /* Vibrant's blur intensity */
+  --hover-lift: -2px;              /* Button hover lift */
+  --hover-lift-card: -4px;         /* Card hover lift */
+  --hover-arrow-move: 6px;         /* Button arrow movement */
+  --hover-image-scale: 1.05;       /* Image zoom on hover */
+}
+
+/* ═══ GHL VARIABLE OVERRIDES ═══ */
+:root {
+  --primaryColor: #00674E !important;
+  --secondaryColor: #C79349 !important;
+  --textColor: #1A2E1C !important;
+  --headlineFont: 'Cormorant Garamond', Georgia, serif !important;
+  --headlinefont: 'Cormorant Garamond', Georgia, serif !important;
+  --bodyFont: 'DM Sans', system-ui, sans-serif !important;
+  --contentfont: 'DM Sans', system-ui, sans-serif !important;
+  --backgroundColor: #FDFCFA !important;
+  --background-color: #FDFCFA !important;
+  --cobalt: #00674E !important;
+  --link-color: #00674E !important;
+  --transparent: transparent !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   3. BASE RESETS
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-background) !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Remove GHL default margins */
+.hl_page-preview--content {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   4. TYPOGRAPHY
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ H1 DISPLAY (Hero Headlines) ═══ */
+.c-headline.h1-display,
+.c-headline .h1-display,
+.c-heading .h1-display,
+.c-heading.h1-display h1,
+.c-heading.h1-display .text-output h1 {
+  font-family: var(--font-headline) !important;
+  font-size: 72px !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.02em !important;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 24px !important;
+}
+
+/* ═══ H2 SECTION (Section Headlines) ═══ */
+.c-headline.h2-section,
+.c-headline .h2-section,
+.c-heading .h2-section,
+.c-heading.h2-section h2,
+.c-heading.h2-section .text-output h2 {
+  font-family: var(--font-headline) !important;
+  font-size: 56px !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.015em !important;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 20px !important;
+}
+
+/* ═══ H3 CARD (Card Headlines) ═══ */
+.c-headline.h3-card,
+.c-headline .h3-card,
+.c-heading .h3-card,
+.c-heading.h3-card h3,
+.c-heading.h3-card .text-output h3 {
+  font-family: var(--font-headline) !important;
+  font-size: 32px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.01em !important;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 16px !important;
+}
+
+/* ═══ H4 LABEL (Eyebrows, Small Headlines) ═══ */
+.c-headline.h4-label,
+.c-headline .h4-label,
+.c-sub-heading.h4-label,
+.c-sub-heading .h4-label,
+.c-sub-heading.h4-label h1,
+.c-sub-heading.h4-label .text-output h1 {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 1.4 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--color-accent) !important;
+  margin-bottom: 12px !important;
+}
+
+/* ═══ BODY LARGE ═══ */
+.c-paragraph.body-large,
+.c-paragraph .body-large,
+.c-paragraph.body-large p {
+  font-family: var(--font-body) !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+  color: var(--color-text-secondary) !important;
+  max-width: 750px !important;
+  margin-bottom: 24px !important;
+}
+
+/* ═══ BODY STANDARD ═══ */
+.c-paragraph p,
+.c-paragraph.body-standard,
+.c-paragraph .body-standard {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.6 !important;
+  letter-spacing: 0 !important;
+  color: var(--color-text-secondary) !important;
+  max-width: 650px !important;
+  margin-bottom: 24px !important;
+}
+
+/* ═══ BODY SMALL (Captions) ═══ */
+.c-paragraph.body-small,
+.c-paragraph .body-small,
+.c-paragraph.caption,
+.c-paragraph .caption {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--color-text-tertiary) !important;
+  margin-bottom: 16px !important;
+}
+
+/* ═══ TYPOGRAPHY ON DARK BACKGROUNDS ═══ */
+.c-section.section-dark .c-headline,
+.c-section.section-dark .c-heading h1,
+.c-section.section-dark .c-heading h2,
+.c-section.section-dark .c-heading h3,
+.c-section.hero-section .c-headline,
+.c-section.hero-section .c-heading h1,
+.c-section.hero-section .c-heading h2 {
+  color: #FFFFFF !important;
+}
+
+.c-section.section-dark .c-paragraph p,
+.c-section.hero-section .c-paragraph p {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.c-section.section-dark .c-paragraph.caption,
+.c-section.hero-section .c-paragraph.caption {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   5. BUTTONS
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ PRIMARY BUTTON (Gold) ═══ */
+.c-button.btn-primary button,
+.c-button .btn-primary,
+button.btn-primary {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  
+  padding: var(--space-button-vertical) var(--space-button-horizontal) !important;
+  
+  background-color: var(--color-accent) !important;
+  color: #FFFFFF !important;
+  
+  border: none !important;
+  border-radius: var(--radius-full) !important;
+  
+  cursor: pointer !important;
+  transition: transform var(--transition-fast), background-color var(--transition-fast) !important;
+  
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.c-button.btn-primary button:hover,
+.c-button .btn-primary:hover,
+button.btn-primary:hover {
+  transform: translateY(var(--hover-lift)) !important;
+  background-color: var(--color-accent-light) !important;
+}
+
+.c-button.btn-primary button:focus,
+.c-button .btn-primary:focus,
+button.btn-primary:focus {
+  outline: 2px solid var(--color-accent) !important;
+  outline-offset: 2px !important;
+}
+
+.c-button.btn-primary button:active,
+.c-button .btn-primary:active,
+button.btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+.c-button.btn-primary button:disabled,
+.c-button .btn-primary:disabled,
+button.btn-primary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* ═══ SECONDARY BUTTON (Forest Green Outline) ═══ */
+.c-button.btn-secondary button,
+.c-button .btn-secondary,
+button.btn-secondary {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  
+  padding: calc(var(--space-button-vertical) - 2px) calc(var(--space-button-horizontal) - 2px) !important;
+  
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  
+  border: 2px solid var(--color-primary) !important;
+  border-radius: var(--radius-full) !important;
+  
+  cursor: pointer !important;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast) !important;
+  
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.c-button.btn-secondary button:hover,
+.c-button .btn-secondary:hover,
+button.btn-secondary:hover {
+  transform: translateY(var(--hover-lift)) !important;
+  background-color: var(--color-primary) !important;
+  color: #FFFFFF !important;
+}
+
+.c-button.btn-secondary button:focus,
+.c-button .btn-secondary:focus,
+button.btn-secondary:focus {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+.c-button.btn-secondary button:active,
+.c-button .btn-secondary:active,
+button.btn-secondary:active {
+  transform: translateY(0) !important;
+}
+
+.c-button.btn-secondary button:disabled,
+.c-button .btn-secondary:disabled,
+button.btn-secondary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+/* ═══ GHOST BUTTON (Text Only) ═══ */
+.c-button.btn-ghost button,
+.c-button .btn-ghost,
+button.btn-ghost {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  
+  padding: 12px 16px !important;
+  
+  background-color: transparent !important;
+  color: var(--color-primary) !important;
+  
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  
+  cursor: pointer !important;
+  transition: color var(--transition-fast), background-color var(--transition-fast) !important;
+  
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.c-button.btn-ghost button:hover,
+.c-button .btn-ghost:hover,
+button.btn-ghost:hover {
+  color: var(--color-accent) !important;
+  background-color: rgba(199, 147, 73, 0.05) !important;
+}
+
+.c-button.btn-ghost button:focus,
+.c-button .btn-ghost:focus,
+button.btn-ghost:focus {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* ═══ BUTTON ARROW (optional icon) ═══ */
+.c-button button::after,
+.btn-primary::after,
+.btn-secondary::after {
+  content: 'â†'' !important;
+  margin-left: 4px !important;
+  transition: transform var(--transition-fast) !important;
+  display: inline-block !important;
+}
+
+.c-button button:hover::after,
+.btn-primary:hover::after,
+.btn-secondary:hover::after {
+  transform: translateX(var(--hover-arrow-move)) !important;
+}
+
+/* Remove arrow from ghost buttons */
+.btn-ghost::after {
+  display: none !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   6. FORMS
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ FORM LABELS ═══ */
+#_builder-form label,
+.c-form label {
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  color: var(--color-text-primary) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+}
+
+/* ═══ TEXT INPUTS ═══ */
+#_builder-form input[type=text][class=form-control],
+#_builder-form input[type=email],
+#_builder-form input[type=tel],
+#_builder-form input[type=number] {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  
+  height: 56px !important;
+  padding: var(--space-input-vertical) var(--space-input-horizontal) !important;
+  
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-background) !important;
+  
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+  
+  width: 100% !important;
+}
+
+#_builder-form input[type=text][class=form-control]:focus,
+#_builder-form input[type=email]:focus,
+#_builder-form input[type=tel]:focus,
+#_builder-form input[type=number]:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 103, 78, 0.1) !important;
+  outline: none !important;
+}
+
+#_builder-form input[type=text][class=form-control]:disabled,
+#_builder-form input[type=email]:disabled,
+#_builder-form input[type=tel]:disabled,
+#_builder-form input[type=number]:disabled {
+  background: var(--color-surface) !important;
+  color: var(--color-text-tertiary) !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+/* ═══ TEXTAREA ═══ */
+#_builder-form textarea {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+  
+  min-height: 120px !important;
+  padding: var(--space-input-vertical) var(--space-input-horizontal) !important;
+  
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-background) !important;
+  
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+  
+  width: 100% !important;
+  resize: vertical !important;
+}
+
+#_builder-form textarea:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 103, 78, 0.1) !important;
+  outline: none !important;
+}
+
+/* ═══ SELECT DROPDOWN ═══ */
+#_builder-form select {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  
+  height: 56px !important;
+  padding: var(--space-input-vertical) var(--space-input-horizontal) !important;
+  
+  color: var(--color-text-primary) !important;
+  background-color: var(--color-background) !important;
+  
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast) !important;
+  
+  width: 100% !important;
+  cursor: pointer !important;
+}
+
+#_builder-form select:focus {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(0, 103, 78, 0.1) !important;
+  outline: none !important;
+}
+
+/* ═══ ERROR STATES ═══ */
+#_builder-form input.error,
+#_builder-form textarea.error,
+#_builder-form select.error {
+  border-color: var(--color-error) !important;
+}
+
+#_builder-form input.error:focus,
+#_builder-form textarea.error:focus,
+#_builder-form select.error:focus {
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   7. CARDS
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ CARD STANDARD (Subtle surface color) ═══ */
+.c-column.card-standard,
+.c-row .card-standard {
+  background-color: var(--color-surface) !important;
+  padding: var(--space-card-padding) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--color-border) !important;
+  transition: transform var(--transition-medium) !important;
+}
+
+.c-column.card-standard:hover,
+.c-row .card-standard:hover {
+  transform: translateY(var(--hover-lift-card)) !important;
+}
+
+/* ═══ CARD ELEVATED (White with border emphasis) ═══ */
+.c-column.card-elevated,
+.c-row .card-elevated {
+  background-color: #FFFFFF !important;
+  padding: var(--space-card-padding) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 2px solid var(--color-border) !important;
+  transition: transform var(--transition-medium), border-color var(--transition-medium) !important;
+}
+
+.c-column.card-elevated:hover,
+.c-row .card-elevated:hover {
+  transform: translateY(var(--hover-lift-card)) !important;
+  border-color: var(--color-primary-light) !important;
+}
+
+/* ═══ CARD BORDERED (Primary border accent) ═══ */
+.c-column.card-bordered,
+.c-row .card-bordered {
+  background-color: var(--color-background) !important;
+  padding: var(--space-card-padding) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 2px solid var(--color-primary) !important;
+  transition: transform var(--transition-medium), border-color var(--transition-medium) !important;
+}
+
+.c-column.card-bordered:hover,
+.c-row .card-bordered:hover {
+  transform: translateY(var(--hover-lift-card)) !important;
+  border-color: var(--color-accent) !important;
+}
+
+/* ═══ CARD GLASS (Glassmorphism overlay) ═══ */
+.c-column.card-glass,
+.c-row .card-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4)) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  padding: var(--space-card-padding) !important;
+  border-radius: var(--radius-xl) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  transition: transform var(--transition-medium), background var(--transition-medium) !important;
+}
+
+.c-column.card-glass:hover,
+.c-row .card-glass:hover {
+  transform: translateY(var(--hover-lift-card)) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5)) !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   8. SECTIONS
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ SECTION LIGHT (Default white/warm background) ═══ */
+.c-section.section-light {
+  background-color: var(--color-background) !important;
+  padding-top: var(--space-section) !important;
+  padding-bottom: var(--space-section) !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* ═══ SECTION SURFACE (Subtle beige) ═══ */
+.c-section.section-surface {
+  background-color: var(--color-beige) !important;
+  padding-top: var(--space-section) !important;
+  padding-bottom: var(--space-section) !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* ═══ SECTION DARK (Forest green with white text) ═══ */
+.c-section.section-dark {
+  background-color: var(--color-primary) !important;
+  color: var(--color-text-inverse) !important;
+  padding-top: var(--space-section) !important;
+  padding-bottom: var(--space-section) !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* ═══ SECTION GRADIENT (Hero treatment) ═══ */
+.c-section.section-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%) !important;
+  color: var(--color-text-inverse) !important;
+  padding-top: var(--space-section-hero) !important;
+  padding-bottom: var(--space-section-hero) !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   9. NAVIGATION - COMPACT WHITE DESIGN
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* === NAV SECTION - White background, minimal padding === */
+.c-section.site-header,
+.c-section.nav-section,
+.c-section:has(.c-nav-menu-v2) {
+    background-color: #FFFFFF !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+}
+
+/* Row inside nav section */
+.c-section.site-header .c-row,
+.c-section.nav-section .c-row,
+.c-section:has(.c-nav-menu-v2) .c-row {
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+}
+
+/* Column inside nav section */
+.c-section.site-header .c-column,
+.c-section.nav-section .c-column,
+.c-section:has(.c-nav-menu-v2) .c-column {
+    padding: 0 !important;
+}
+
+/* === COMPLETE RESET === */
+.c-nav-menu-v2,
+.c-nav-menu-v2 *:not(.submenu):not(.sub-menu-align):not(.mega-menu) {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    text-decoration: none !important;
+}
+
+/* === HEADER CONTAINER === */
+.c-nav-menu-v2 .mega-menu-container {
+    background-color: #FFFFFF !important;
+    padding: 0 40px !important;
+    height: 72px !important;
+    min-height: 72px !important;
+    max-height: 72px !important;
+    border-bottom: 1px solid rgba(74, 72, 67, 0.06) !important;
+}
+
+/* === LOGO - Constrained sizing === */
+.c-nav-menu-v2 .menu-layout .mr-2 .image-container img,
+.c-nav-menu-v2 .menu-layout .image-container picture img,
+.c-nav-menu-v2 .menu-layout .hl-image-picture img,
+.c-nav-menu-v2 .menu-layout img.hl-optimized,
+.c-nav-menu-v2 .menu-layout img.mw-100 {
+    max-height: 52px !important;
+    height: auto !important;
+    width: auto !important;
+    object-fit: contain !important;
+}
+
+/* Text logo / Business Name */
+.c-nav-menu-v2 .text-output p {
+    font-family: var(--font-headline) !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #1A1915 !important;
+    letter-spacing: -0.01em !important;
+}
+
+/* === TOP-LEVEL MENU ITEMS === */
+.c-nav-menu-v2 .menu-item-title {
+    font-family: var(--font-body) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #4A4843 !important;
+    padding: 8px 14px !important;
+    transition: color 0.25s ease !important;
+}
+
+.c-nav-menu-v2 .menu-item-title:hover {
+    color: #00674E !important;
+}
+
+/* Dropdown arrow */
+.c-nav-menu-v2 .menu-item-title svg {
+    width: 10px !important;
+    height: 10px !important;
+    margin-left: 4px !important;
+    transition: transform 0.25s ease !important;
+}
+
+.c-nav-menu-v2 .menu-item:hover .menu-item-title svg {
+    transform: rotate(180deg) !important;
+}
+
+/* Active state */
+.c-nav-menu-v2 .menu-item.active .menu-item-title {
+    color: #00674E !important;
+}
+
+/* === LAST MENU ITEM AS CTA === */
+.c-nav-menu-v2 .nav-menu-desktop > li:last-child .menu-item-title,
+.c-nav-menu-v2 .nav-menu-ul > li:last-child .menu-item-title,
+.c-nav-menu-v2 ul[class*="nav-menu"] > li:last-child .menu-item-title {
+    background-color: #00674E !important;
+    color: #FFFFFF !important;
+    padding: 8px 20px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    transition: all 0.25s ease !important;
+}
+
+.c-nav-menu-v2 .nav-menu-desktop > li:last-child .menu-item-title:hover,
+.c-nav-menu-v2 .nav-menu-ul > li:last-child .menu-item-title:hover,
+.c-nav-menu-v2 ul[class*="nav-menu"] > li:last-child .menu-item-title:hover {
+    background-color: #005640 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 103, 78, 0.25) !important;
+}
+
+/* === DROPDOWN PANEL === */
+.c-nav-menu-v2 .submenu,
+.c-nav-menu-v2 .sub-menu-align,
+.c-nav-menu-v2 div[class*="submenu"] {
+    background: #FFFFFF !important;
+    background-color: #FFFFFF !important;
+    border: 1px solid rgba(74, 72, 67, 0.08) !important;
+    border-radius: 12px !important;
+    padding: 8px !important;
+    box-shadow: 0 4px 6px rgba(26, 25, 21, 0.04), 
+              0 10px 24px rgba(26, 25, 21, 0.08) !important;
+    margin-top: 8px !important;
+    min-width: 200px !important;
+}
+
+/* Dropdown inner containers */
+.c-nav-menu-v2 .submenu-content-container,
+.c-nav-menu-v2 .submenu-column,
+.c-nav-menu-v2 .itemTarget,
+.c-nav-menu-v2 .overflow-hidden,
+.c-nav-menu-v2 .submenu ul,
+.c-nav-menu-v2 .submenu li {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* === DROPDOWN ITEMS === */
+.c-nav-menu-v2 .submenu-item,
+.c-nav-menu-v2 .submenu .mega-menu-link {
+    display: block !important;
+    font-family: var(--font-body) !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    color: #4A4843 !important;
+    padding: 10px 14px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    margin: 2px 0 !important;
+}
+
+.c-nav-menu-v2 .submenu-item:hover,
+.c-nav-menu-v2 .submenu .mega-menu-link:hover {
+    background-color: rgba(0, 103, 78, 0.06) !important;
+    color: #00674E !important;
+}
+
+/* === MEGA MENU === */
+.c-nav-menu-v2 .mega-menu {
+    background: #FFFFFF !important;
+    border: 1px solid rgba(74, 72, 67, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px rgba(26, 25, 21, 0.04), 
+              0 10px 24px rgba(26, 25, 21, 0.08) !important;
+}
+
+.c-nav-menu-v2 .mega-menu .child-container {
+    background: transparent !important;
+    padding: 20px !important;
+}
+
+/* === NAV CTA BUTTON === */
+.c-nav-menu-v2 .c-button button {
+    background-color: #00674E !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 8px 20px !important;
+    font-family: var(--font-body) !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    transition: all 0.25s ease !important;
+}
+
+.c-nav-menu-v2 .c-button button:hover {
+    background-color: #005640 !important;
+    box-shadow: 0 4px 12px rgba(0, 103, 78, 0.25) !important;
+}
+
+.c-nav-menu-v2 .c-button .main-heading-button {
+    color: #FFFFFF !important;
+}
+
+/* === ICON BUTTONS === */
+.c-nav-menu-v2 .search-nav-button,
+.c-nav-menu-v2 .nav-cart-button,
+.c-nav-menu-v2 .login-hover {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background-color 0.2s ease !important;
+}
+
+.c-nav-menu-v2 .search-nav-button:hover,
+.c-nav-menu-v2 .nav-cart-button:hover,
+.c-nav-menu-v2 .login-hover:hover {
+    background-color: rgba(0, 103, 78, 0.06) !important;
+}
+
+.c-nav-menu-v2 .search-nav-button svg path,
+.c-nav-menu-v2 .nav-cart-icon path,
+.c-nav-menu-v2 .user-icon {
+    stroke: #4A4843 !important;
+    transition: stroke 0.2s ease !important;
+}
+
+.c-nav-menu-v2 .search-nav-button:hover svg path,
+.c-nav-menu-v2 .nav-cart-button:hover .nav-cart-icon path,
+.c-nav-menu-v2 .login-hover:hover .user-icon {
+    stroke: #00674E !important;
+}
+
+/* === HAMBURGER === */
+.c-nav-menu-v2 .nav-menu-mobile {
+    background: transparent !important;
+    border: 1.5px solid #4A4843 !important;
+    border-radius: 6px !important;
+    padding: 8px 10px !important;
+    transition: all 0.25s ease !important;
+}
+
+.c-nav-menu-v2 .nav-menu-mobile span::before {
+    color: #4A4843 !important;
+}
+
+.c-nav-menu-v2 .nav-menu-mobile:hover {
+    background: #00674E !important;
+    border-color: #00674E !important;
+}
+
+.c-nav-menu-v2 .nav-menu-mobile:hover span::before {
+    color: #FFFFFF !important;
+}
+
+/* === MOBILE MENU POPUP === */
+.c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"],
+[style*="position: fixed"][style*="height: 100vh"] {
+    background: #FFFFFF !important;
+}
+
+.c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] .menu-item {
+    border-bottom: 1px solid rgba(74, 72, 67, 0.08) !important;
+}
+
+.c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] .menu-item-title {
+    padding: 16px 0 !important;
+    font-size: 16px !important;
+    color: #1A1915 !important;
+}
+
+.c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] .submenu {
+    position: relative !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: rgba(0, 103, 78, 0.04) !important;
+    border-radius: 8px !important;
+    margin: 8px 0 !important;
+}
+
+.c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] .submenu-item {
+    color: #4A4843 !important;
+}
+
+/* Close button */
+.c-nav-menu-v2 .x-icon .touch-target {
+    background: rgba(74, 72, 67, 0.08) !important;
+    border-radius: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.c-nav-menu-v2 .x-icon svg {
+    stroke: #4A4843 !important;
+}
+
+.c-nav-menu-v2 .x-icon:hover .touch-target {
+    background: rgba(0, 103, 78, 0.08) !important;
+}
+
+.c-nav-menu-v2 .x-icon:hover svg {
+    stroke: #00674E !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   10. FOOTER (GLOBAL)
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ FOOTER CONTAINER ═══ */
+.c-section.site-footer,
+.c-section.footer {
+  position: relative !important;
+  background-color: var(--color-text-primary) !important;
+  color: var(--color-text-inverse) !important;
+  
+  padding-top: 80px !important;
+  padding-bottom: 40px !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+  
+  overflow: hidden !important;
+}
+
+/* ═══ LARGE BRAND TEXT (Vibrant-inspired decorative element) ═══ */
+.c-section.site-footer .footer-brand-text,
+.c-section.footer .footer-brand-text {
+  position: absolute !important;
+  bottom: -20px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  
+  font-family: var(--font-headline) !important;
+  font-size: 180px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.03em !important;
+  
+  color: rgba(255, 255, 255, 0.03) !important;
+  
+  text-transform: uppercase !important;
+  user-select: none !important;
+  pointer-events: none !important;
+  
+  white-space: nowrap !important;
+  z-index: 0 !important;
+}
+
+/* ═══ FOOTER CONTENT (sits above brand text) ═══ */
+.c-section.site-footer .c-row,
+.c-section.footer .c-row {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* ═══ FOOTER LOGO ═══ */
+.c-image.footer-logo,
+.site-footer .c-image,
+.footer .c-image {
+  margin-bottom: 20px !important;
+}
+
+.c-image.footer-logo img,
+.site-footer .c-image img,
+.footer .c-image img {
+  height: 40px !important;
+  width: auto !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+/* ═══ FOOTER DESCRIPTION ═══ */
+.c-paragraph.footer-desc,
+.site-footer .footer-desc p {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  max-width: 300px !important;
+  margin-bottom: 24px !important;
+}
+
+/* ═══ FOOTER COLUMN HEADINGS ═══ */
+.c-headline.footer-heading,
+.c-heading.footer-heading h3,
+.site-footer .footer-heading,
+.footer .footer-heading {
+  color: #FFFFFF !important;
+  font-family: var(--font-body) !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 16px !important;
+}
+
+/* ═══ FOOTER LINKS ═══ */
+.c-paragraph.footer-link a,
+.site-footer a,
+.footer a {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  
+  display: block !important;
+  margin-bottom: 12px !important;
+  
+  transition: color var(--transition-fast) !important;
+}
+
+.c-paragraph.footer-link a:hover,
+.site-footer a:hover,
+.footer a:hover {
+  color: #FFFFFF !important;
+}
+
+/* ═══ FOOTER BOTTOM (Copyright, Social) ═══ */
+.c-row.footer-bottom,
+.site-footer .footer-bottom,
+.footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin-top: 60px !important;
+  padding-top: 24px !important;
+  
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+}
+
+/* ═══ COPYRIGHT TEXT ═══ */
+.c-paragraph.footer-copyright,
+.site-footer .footer-copyright,
+.footer .footer-copyright {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 13px !important;
+  margin: 0 !important;
+}
+
+/* ═══ SOCIAL ICONS ═══ */
+.c-image.footer-social,
+.site-footer .footer-social {
+  display: inline-flex !important;
+  gap: 16px !important;
+}
+
+.c-image.footer-social img,
+.site-footer .footer-social img {
+  width: 20px !important;
+  height: 20px !important;
+  opacity: 0.7 !important;
+  transition: opacity var(--transition-fast), transform var(--transition-fast) !important;
+  filter: brightness(0) invert(1) !important;
+}
+
+.c-image.footer-social:hover img,
+.site-footer .footer-social:hover img {
+  opacity: 1 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   11. ANIMATION UTILITIES (VIBRANT MOTION SYSTEM)
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ ENTRANCE ANIMATION @KEYFRAMES ═══ */
+
+/* Fade up entrance (standard content blocks) */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animate-rise-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade up with blur (premium headline treatment) */
+@keyframes fadeUpBlur {
+  from {
+    opacity: 0;
+    transform: translateY(var(--animate-rise-distance));
+    filter: blur(var(--animate-blur-amount));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Fade in only (subtle reveals) */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+  }
+  to { 
+    opacity: 1; 
+  }
+}
+
+/* Scale in (for cards, images) */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ═══ ANIMATION UTILITY CLASSES ═══ */
+
+/* Initial state - hidden before animation triggers */
+.animate-fade-rise {
+  opacity: 0 !important;
+  transform: translateY(var(--animate-rise-distance)) !important;
+  transition: opacity var(--transition-emphasis), transform var(--transition-emphasis) !important;
+}
+
+/* Blur variant for headlines */
+.animate-blur-in {
+  opacity: 0 !important;
+  transform: translateY(var(--animate-rise-distance)) !important;
+  filter: blur(var(--animate-blur-amount)) !important;
+  transition: opacity var(--transition-slow), 
+              transform var(--transition-slow), 
+              filter var(--transition-slow) !important;
+}
+
+/* Simple fade (no movement) */
+.animate-fade {
+  opacity: 0 !important;
+  transition: opacity var(--transition-medium) !important;
+}
+
+/* Scale variant */
+.animate-scale {
+  opacity: 0 !important;
+  transform: scale(0.95) !important;
+  transition: opacity var(--transition-medium), transform var(--transition-medium) !important;
+}
+
+/* Visible state - applied via JS when element enters viewport */
+.is-visible,
+.animate-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  filter: blur(0) !important;
+}
+
+/* ═══ CSS-ONLY PAGE LOAD ANIMATIONS (Hero sections) ═══ */
+
+/* Auto-animate on page load */
+.animate-load {
+  animation: fadeUp var(--transition-emphasis) cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+}
+
+.animate-blur-load {
+  animation: fadeUpBlur var(--transition-slow) cubic-bezier(0.165, 0.84, 0.44, 1) forwards !important;
+}
+
+/* ═══ STAGGER DELAY CLASSES (Vibrant's 0.3s pattern) ═══ */
+
+/* For scroll-triggered animations */
+.stagger-1 { 
+  transition-delay: 0s !important; 
+}
+
+.stagger-2 { 
+  transition-delay: var(--delay-stagger) !important; 
+}
+
+.stagger-3 { 
+  transition-delay: calc(var(--delay-stagger) * 2) !important; 
+}
+
+.stagger-4 { 
+  transition-delay: calc(var(--delay-stagger) * 3) !important; 
+}
+
+.stagger-5 { 
+  transition-delay: calc(var(--delay-stagger) * 4) !important; 
+}
+
+.stagger-6 { 
+  transition-delay: calc(var(--delay-stagger) * 5) !important; 
+}
+
+/* For page load animations */
+.load-delay-1 { 
+  animation-delay: 0s !important; 
+}
+
+.load-delay-2 { 
+  animation-delay: var(--delay-stagger) !important; 
+}
+
+.load-delay-3 { 
+  animation-delay: calc(var(--delay-stagger) * 2) !important; 
+}
+
+.load-delay-4 { 
+  animation-delay: calc(var(--delay-stagger) * 3) !important; 
+}
+
+.load-delay-5 { 
+  animation-delay: calc(var(--delay-stagger) * 4) !important; 
+}
+
+/* ═══ PREFERS REDUCED MOTION ═══ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .animate-fade-rise,
+  .animate-blur-in,
+  .animate-fade,
+  .animate-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   12. UTILITY CLASSES
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* ═══ TEXT ALIGNMENT ═══ */
+.text-left { text-align: left !important; }
+.text-center { text-align: center !important; }
+.text-right { text-align: right !important; }
+
+/* ═══ SPACING UTILITIES ═══ */
+.mt-xs { margin-top: var(--space-xs) !important; }
+.mt-sm { margin-top: var(--space-sm) !important; }
+.mt-md { margin-top: var(--space-md) !important; }
+.mt-lg { margin-top: var(--space-lg) !important; }
+.mt-xl { margin-top: var(--space-xl) !important; }
+
+.mb-xs { margin-bottom: var(--space-xs) !important; }
+.mb-sm { margin-bottom: var(--space-sm) !important; }
+.mb-md { margin-bottom: var(--space-md) !important; }
+.mb-lg { margin-bottom: var(--space-lg) !important; }
+.mb-xl { margin-bottom: var(--space-xl) !important; }
+
+.pt-xs { padding-top: var(--space-xs) !important; }
+.pt-sm { padding-top: var(--space-sm) !important; }
+.pt-md { padding-top: var(--space-md) !important; }
+.pt-lg { padding-top: var(--space-lg) !important; }
+.pt-xl { padding-top: var(--space-xl) !important; }
+
+.pb-xs { padding-bottom: var(--space-xs) !important; }
+.pb-sm { padding-bottom: var(--space-sm) !important; }
+.pb-md { padding-bottom: var(--space-md) !important; }
+.pb-lg { padding-bottom: var(--space-lg) !important; }
+.pb-xl { padding-bottom: var(--space-xl) !important; }
+
+/* ═══ VISIBILITY ═══ */
+.hide-mobile { display: block !important; }
+.hide-desktop { display: none !important; }
+
+/* ═══ TRANSITION TIMING UTILITIES ═══ */
+.transition-fast { transition: all var(--transition-fast) !important; }
+.transition-medium { transition: all var(--transition-medium) !important; }
+.transition-slow { transition: all var(--transition-slow) !important; }
+
+/* ═══ MAX-WIDTH CONTAINERS ═══ */
+.container-narrow { max-width: 650px !important; margin-left: auto !important; margin-right: auto !important; }
+.container-medium { max-width: 900px !important; margin-left: auto !important; margin-right: auto !important; }
+.container-wide { max-width: 1200px !important; margin-left: auto !important; margin-right: auto !important; }
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   13. MOBILE OVERRIDES (480px - GHL BREAKPOINT)
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+@media screen and (max-width: 480px) {
+
+  /* ═══ TYPOGRAPHY ═══ */
+  
+  .c-headline.h1-display,
+  .c-headline .h1-display,
+  .c-heading.h1-display h1 {
+    font-size: 48px !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.015em !important;
+  }
+  
+  .c-headline.h2-section,
+  .c-headline .h2-section,
+  .c-heading.h2-section h2 {
+    font-size: 36px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .c-headline.h3-card,
+  .c-headline .h3-card,
+  .c-heading.h3-card h3 {
+    font-size: 24px !important;
+  }
+  
+  .c-headline.h4-label,
+  .c-headline .h4-label,
+  .c-sub-heading.h4-label h1 {
+    font-size: 12px !important;
+  }
+  
+  .c-paragraph.body-large,
+  .c-paragraph .body-large {
+    font-size: 18px !important;
+  }
+  
+  .c-paragraph p,
+  .c-paragraph.body-standard {
+    font-size: 16px !important;
+  }
+
+  /* ═══ BUTTONS ═══ */
+  
+  .c-button.btn-primary button,
+  .c-button .btn-primary,
+  button.btn-primary {
+    padding: 16px 28px !important;
+    font-size: 15px !important;
+  }
+  
+  .c-button.btn-secondary button,
+  .c-button .btn-secondary,
+  button.btn-secondary {
+    padding: 14px 26px !important;
+    font-size: 15px !important;
+  }
+  
+  .c-button.btn-ghost button,
+  .c-button .btn-ghost,
+  button.btn-ghost {
+    padding: 10px 14px !important;
+    font-size: 15px !important;
+  }
+
+  /* ═══ SECTIONS ═══ */
+  
+  .c-section.section-light,
+  .c-section.section-surface,
+  .c-section.section-dark {
+    padding-top: var(--space-section-mobile) !important;
+    padding-bottom: var(--space-section-mobile) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  .c-section.section-gradient {
+    padding-top: var(--space-section-hero-mobile) !important;
+    padding-bottom: var(--space-section-hero-mobile) !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ═══ CARDS ═══ */
+  
+  .c-column.card-standard,
+  .c-column.card-elevated,
+  .c-column.card-bordered,
+  .c-column.card-glass {
+    padding: var(--space-card-padding-mobile) !important;
+  }
+
+  /* ═══ NAVIGATION ═══ */
+  
+  .c-nav-menu-v2 .mega-menu-container {
+    padding: 0 20px !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    max-height: 64px !important;
+  }
+  
+  /* Mobile logo sizing */
+  .c-nav-menu-v2 .menu-layout .mr-2 .image-container img,
+  .c-nav-menu-v2 .menu-layout .hl-image-picture img,
+  .c-nav-menu-v2 .menu-layout img.hl-optimized {
+    max-height: 44px !important;
+  }
+
+  .c-nav-menu-v2 .text-output p {
+    font-size: 18px !important;
+  }
+
+  /* Mobile menu styling */
+  .c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] {
+    padding: 80px 24px 24px !important;
+  }
+
+  .c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] .menu-item-title {
+    font-size: 18px !important;
+    padding: 14px 0 !important;
+  }
+  
+  /* Mobile CTA - full width */
+  .c-nav-menu-v2 .nav-menu-desktop[style*="position: fixed"] > li:last-child .menu-item-title {
+    display: block !important;
+    text-align: center !important;
+    margin-top: 16px !important;
+    padding: 14px 24px !important;
+  }
+
+  /* ═══ FOOTER ═══ */
+  
+  .c-section.site-footer,
+  .c-section.footer {
+    padding-top: 60px !important;
+    padding-bottom: 32px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  
+  /* Large brand text - smaller on mobile */
+  .c-section.site-footer .footer-brand-text,
+  .c-section.footer .footer-brand-text {
+    font-size: 80px !important;
+    bottom: -10px !important;
+  }
+  
+  /* Footer bottom - stack on mobile */
+  .c-row.footer-bottom,
+  .site-footer .footer-bottom,
+  .footer .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+
+  /* ═══ ANIMATION SIMPLIFICATIONS ═══ */
+  
+  /* Disable blur on mobile for performance */
+  .animate-blur-in {
+    filter: none !important;
+  }
+  
+  /* Reduce rise distance */
+  .animate-fade-rise,
+  .animate-blur-in {
+    --animate-rise-distance: 2rem !important;
+  }
+  
+  /* Faster stagger timing on mobile */
+  .stagger-1 { transition-delay: 0s !important; }
+  .stagger-2 { transition-delay: 0.1s !important; }
+  .stagger-3 { transition-delay: 0.2s !important; }
+  .stagger-4 { transition-delay: 0.3s !important; }
+  .stagger-5 { transition-delay: 0.4s !important; }
+  .stagger-6 { transition-delay: 0.5s !important; }
+
+  /* ═══ UTILITIES ═══ */
+  
+  .hide-mobile { display: none !important; }
+  .hide-desktop { display: block !important; }
+  
+  .container-narrow,
+  .container-medium,
+  .container-wide {
+    max-width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────────
+   14. JAVASCRIPT INTEGRATION NOTES
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* 
+ * SCROLL-TRIGGERED ANIMATIONS
+ * 
+ * This CSS provides the foundation for scroll-triggered animations.
+ * JavaScript is required to add the "is-visible" or "animate-visible" class
+ * when elements enter the viewport.
+ * 
+ * === OPTION 1: Intersection Observer (Simpler, No External Libraries) ===
+ * 
+ * const observerOptions = {
+ *   root: null,
+ *   rootMargin: '0px',
+ *   threshold: 0.1  // Trigger when 10% visible (approximates Vibrant's "top 90%")
+ * };
+ * 
+ * const observer = new IntersectionObserver((entries) => {
+ *   entries.forEach(entry => {
+ *     if (entry.isIntersecting) {
+ *       entry.target.classList.add('is-visible');
+ *       // Optional: stop observing after animation
+ *       // observer.unobserve(entry.target);
+ *     }
+ *   });
+ * }, observerOptions);
+ * 
+ * // Apply to all animated elements
+ * document.querySelectorAll('.animate-fade-rise, .animate-blur-in, .animate-fade, .animate-scale').forEach(el => {
+ *   observer.observe(el);
+ * });
+ * 
+ * 
+ * === OPTION 2: GSAP + ScrollTrigger (Vibrant's Exact Implementation) ===
+ * 
+ * // Include GSAP CDN in page head:
+ * // <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.0/dist/gsap.min.js"></script>
+ * // <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.0/dist/ScrollTrigger.min.js"></script>
+ * 
+ * gsap.registerPlugin(ScrollTrigger);
+ * 
+ * // Headline reveals with blur
+ * gsap.utils.toArray('.animate-blur-in').forEach(headline => {
+ *   gsap.set(headline, {
+ *     opacity: 0,
+ *     y: '4rem',
+ *     filter: 'blur(20px)'
+ *   });
+ *   
+ *   gsap.to(headline, {
+ *     opacity: 1,
+ *     y: '0',
+ *     filter: 'blur(0)',
+ *     duration: 0.9,
+ *     ease: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+ *     scrollTrigger: {
+ *       trigger: headline,
+ *       start: 'top 90%'  // Vibrant's exact trigger point
+ *     }
+ *   });
+ * });
+ * 
+ * // Content blocks with stagger
+ * document.querySelectorAll('.content-section').forEach(section => {
+ *   const blocks = section.querySelectorAll('.animate-fade-rise');
+ *   
+ *   gsap.set(blocks, {
+ *     opacity: 0,
+ *     y: '4rem'
+ *   });
+ *   
+ *   gsap.to(blocks, {
+ *     opacity: 1,
+ *     y: '0',
+ *     duration: 1.2,
+ *     stagger: 0.3,  // Vibrant's 0.3s stagger
+ *     ease: 'cubic-bezier(0.165, 0.84, 0.44, 1)',
+ *     scrollTrigger: {
+ *       trigger: section,
+ *       start: 'top 90%'
+ *     }
+ *   });
+ * });
+ * 
+ * 
+ * === HOW TO APPLY ANIMATION CLASSES IN GHL ===
+ * 
+ * 1. In GHL page builder, select the element (headline, card, etc.)
+ * 2. Go to Settings > Custom Class
+ * 3. Add animation class:
+ *    - Headlines: "animate-blur-in"
+ *    - Cards/content blocks: "animate-fade-rise"
+ *    - Simple fades: "animate-fade"
+ * 4. For staggered animations, also add stagger class:
+ *    - First item: "animate-fade-rise stagger-1"
+ *    - Second item: "animate-fade-rise stagger-2"
+ *    - Third item: "animate-fade-rise stagger-3"
+ *    - etc.
+ * 5. For page load animations (hero content):
+ *    - Add "animate-load" or "animate-blur-load"
+ *    - Add "load-delay-1", "load-delay-2", etc. for stagger
+ * 
+ * 
+ * === MOBILE MENU TOGGLE (if needed) ===
+ * 
+ * const menuToggle = document.querySelector('.menu-toggle');
+ * const mobileMenu = document.querySelector('.mobile-menu');
+ * 
+ * if (menuToggle && mobileMenu) {
+ *   menuToggle.addEventListener('click', () => {
+ *     mobileMenu.classList.toggle('is-open');
+ *   });
+ * }
+ */
+
+@media screen and (min-width: 768px) {
+  .c-nav-menu-v2 .x-icon {
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   END OF MASTER CSS
+   ═══════════════════════════════════════════════════════════════════════════════ */
